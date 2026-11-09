@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="A polished two-player Tic Tac Toe game with a signed magic-square maths layer."
+    />
+    <meta name="theme-color" content="#060a17" />
+    <title>Tic Tac Toe · Magic Square Edition</title>
+    <script>
+      (() => {
+        try {
+          const stored = JSON.parse(localStorage.getItem('ttt.theme.v1') || '"midnight"');
+          const theme = stored === 'daylight' ? 'daylight' : 'midnight';
+          document.documentElement.dataset.theme = theme;
+          document.documentElement.style.colorScheme = theme === 'daylight' ? 'light' : 'dark';
+        } catch {
+          /* A fresh start in midnight. */
+        }
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
